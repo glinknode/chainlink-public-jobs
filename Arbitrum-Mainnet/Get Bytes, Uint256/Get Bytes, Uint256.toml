@@ -1,0 +1,29 @@
+type = "directrequest"
+schemaVersion = 1
+name = "GLINK-ARBI [DR] (Get > x1 Bytes, x1 Uint256)"
+externalJobID = "a57209eb-2921-4395-934a-124b1fb1ec9b"
+forwardingAllowed = false
+maxTaskDuration = "0s"
+contractAddress = "0x6c2e87340Ef6F3b7e21B2304D6C057091814f25E"
+minContractPaymentLinkJuels = "100000000000000000"
+observationSource = """
+    decode_log   [type="ethabidecodelog"
+                  abi="OracleRequest(bytes32 indexed specId, address requester, bytes32 requestId, uint256 payment, address callbackAddr, bytes4 callbackFunctionId, uint256 cancelExpiration, uint256 dataVersion, bytes data)"
+                  data="$(jobRun.logData)"
+                  topics="$(jobRun.logTopics)"]
+                  
+    decode_cbor     [type="cborparse" data="$(decode_log.data)"]
+    fetch           [type="http" method=GET url="$(decode_cbor.get)"]
+    parse_1         [type=jsonparse path="$(decode_cbor.path1)" data="$(fetch)"]
+    parse_2         [type=jsonparse path="$(decode_cbor.path2)" data="$(fetch)"]
+    multiply_1      [type="multiply" input="$(parse_1)" times="$(decode_cbor.times)"]
+    encode_data     [type="ethabiencode" abi="(bytes32 requestId, bytes _largeBytes, uint256 _number1)" data="{ \\"requestId\\": $(decode_log.requestId), \\"_largeBytes\\": $(parse_2), \\"_number1\\": $(multiply_1)}"]
+    encode_tx       [type="ethabiencode"
+                      abi="fulfillOracleRequest2(bytes32 requestId, uint256 payment, address callbackAddress, bytes4 callbackFunctionId, uint256 expiration, bytes calldata data)"
+                      data="{\\"requestId\\": $(decode_log.requestId), \\"payment\\": $(decode_log.payment), \\"callbackAddress\\": $(decode_log.callbackAddr), \\"callbackFunctionId\\": $(decode_log.callbackFunctionId), \\"expiration\\": $(decode_log.cancelExpiration), \\"data\\": $(encode_data)}"
+                    ]
+    submit_tx    [type="ethtx" to="0x6c2e87340Ef6F3b7e21B2304D6C057091814f25E" data="$(encode_tx)"]
+    
+    decode_log -> decode_cbor -> fetch -> parse_1 -> parse_2 -> multiply_1 -> encode_data -> encode_tx -> submit_tx
+"""
+

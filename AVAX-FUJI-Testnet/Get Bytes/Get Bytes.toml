@@ -1,0 +1,31 @@
+type = "directrequest"
+schemaVersion = 1
+name = "GLINK-AVAX-FUJI [DR] (Get > Bytes)"
+externalJobID = "ae268b88-d010-4d22-9432-ec86958df136"
+forwardingAllowed = false
+maxTaskDuration = "0s"
+contractAddress = "0x37549B5E537f15f3f8b66bea7291A0BdEDC87B57"
+minContractPaymentLinkJuels = "0"
+observationSource = """
+    decode_log   [type="ethabidecodelog"
+                  abi="OracleRequest(bytes32 indexed specId, address requester, bytes32 requestId, uint256 payment, address callbackAddr, bytes4 callbackFunctionId, uint256 cancelExpiration, uint256 dataVersion, bytes data)"
+                  data="$(jobRun.logData)"
+                  topics="$(jobRun.logTopics)"]
+
+    decode_cbor  [type="cborparse" data="$(decode_log.data)"]
+    fetch        [type="http" method=GET url="$(decode_cbor.get)"]
+    parse        [type="jsonparse" path="$(decode_cbor.path)" data="$(fetch)"]
+    encode_large [type="ethabiencode"
+                abi="(bytes32 requestId, bytes _data)"
+                data="{\\"requestId\\": $(decode_log.requestId), \\"_data\\": $(parse)}"
+                ]
+    encode_tx  [type="ethabiencode"
+                abi="fulfillOracleRequest2(bytes32 requestId, uint256 payment, address callbackAddress, bytes4 callbackFunctionId, uint256 expiration, bytes calldata data)"
+                data="{\\"requestId\\": $(decode_log.requestId), \\"payment\\":   $(decode_log.payment), \\"callbackAddress\\": $(decode_log.callbackAddr), \\"callbackFunctionId\\": $(decode_log.callbackFunctionId), \\"expiration\\": $(decode_log.cancelExpiration), \\"data\\": $(encode_large)}"
+                ]
+
+    submit_tx    [type="ethtx" to="0x37549B5E537f15f3f8b66bea7291A0BdEDC87B57" data="$(encode_tx)"]
+
+    decode_log -> decode_cbor -> fetch -> parse  -> encode_large -> encode_tx -> submit_tx
+"""
+
