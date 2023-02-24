@@ -1,0 +1,27 @@
+type = "directrequest"
+schemaVersion = 1
+name = "GLINK-ETH-GOERLI [DR] (Get > Address)"
+externalJobID = "420ed4a0-64d7-4f63-976d-8939d7539611"
+forwardingAllowed = false
+maxTaskDuration = "0s"
+contractAddress = "0x6c2e87340Ef6F3b7e21B2304D6C057091814f25E"
+minContractPaymentLinkJuels = "0"
+observationSource = """
+    decode_log   [type="ethabidecodelog"
+                  abi="OracleRequest(bytes32 indexed specId, address requester, bytes32 requestId, uint256 payment, address callbackAddr, bytes4 callbackFunctionId, uint256 cancelExpiration, uint256 dataVersion, bytes data)"
+                  data="$(jobRun.logData)"
+                  topics="$(jobRun.logTopics)"]
+
+    decode_cbor     [type="cborparse" data="$(decode_log.data)"]
+    fetch           [type="http" method=GET url="$(decode_cbor.get)"]
+    parse           [type="jsonparse" path="$(decode_cbor.path)" data="$(fetch)"]
+    encode_data     [type="ethabiencode" abi="(bytes32 requestId, address _Address)" data="{ \\"requestId\\": $(decode_log.requestId), \\"_Address\\": $(parse)}"]
+    encode_tx       [type="ethabiencode"
+                      abi="fulfillOracleRequest2(bytes32 requestId, uint256 payment, address callbackAddress, bytes4 callbackFunctionId, uint256 expiration, bytes calldata data)"
+                      data="{\\"requestId\\": $(decode_log.requestId), \\"payment\\": $(decode_log.payment), \\"callbackAddress\\": $(decode_log.callbackAddr), \\"callbackFunctionId\\": $(decode_log.callbackFunctionId), \\"expiration\\": $(decode_log.cancelExpiration), \\"data\\": $(encode_data)}"
+                    ]
+    submit_tx    [type="ethtx" to="0x6c2e87340Ef6F3b7e21B2304D6C057091814f25E" data="$(encode_tx)"]
+
+    decode_log -> decode_cbor -> fetch -> parse -> encode_data -> encode_tx -> submit_tx
+"""
+
