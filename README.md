@@ -16,6 +16,7 @@
 ### Testnets
 
 - Ethereum Goerli
+- Ethereum Sepolia
 - Avalanche Fuji
 - Polygon Mumbai
 
