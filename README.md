@@ -39,18 +39,18 @@
 
 ### Comparison table - Testnet
 
-| Job                         | Ethereum - Goerli           | Avalanche - Fuji           | Polygon - Mumbai           |
-| --------------------------- | ------           | ------           | ------           |
-| HTTP Get > Address             | ✅ / 0 LINK   | ✅ / 0 LINK   |✅ / 0 LINK   |
-| HTTP Get > Bool             | ✅ / 0 LINK   | ✅ / 0 LINK   |✅ / 0 LINK   |
-| HTTP Get > Bytes            | ✅ / 0 LINK   | ✅ / 0 LINK   |✅ / 0 LINK   |
-| HTTP Get > Bytes,Uint256          | ✅ / 0 LINK   | ✅ / 0 LINK   |✅ / 0 LINK   |
-| HTTP Get > Int256             | ✅ / 0 LINK   | ✅ / 0 LINK   |✅ / 0 LINK   |
-| HTTP Get > Uint256          | ✅ / 0 LINK   | ✅ / 0 LINK  |✅ / 0 LINK   |
-| HTTP Get > Uint256 - no mult         | ✅ / 0 LINK   | ✅ / 0 LINK  |✅ / 0 LINK   |
-| HTTP Get > Uint256,Uint256  | ✅ / 0 LINK   | ✅ / 0 LINK   |✅ / 0 LINK   |
-| HTTP Get > Uint256[]        | ✅ / 0 LINK   | ✅ / 0 LINK    |✅ / 0 LINK   |
-| HTTP Get > String             | ✅ / 0 LINK   | ✅ / 0 LINK   |✅ / 0 LINK   |
+| Job                         | Ethereum - Goerli           | Ethereum - Sepolia           | Avalanche - Fuji           | Polygon - Mumbai           |
+| --------------------------- | ------           | ------           | ------           | ------           |
+| HTTP Get > Address             | ✅ / 0 LINK   | ✅ / 0 LINK   | ✅ / 0 LINK   |✅ / 0 LINK   |
+| HTTP Get > Bool             | ✅ / 0 LINK   | ✅ / 0 LINK   | ✅ / 0 LINK   |✅ / 0 LINK   |
+| HTTP Get > Bytes            | ✅ / 0 LINK   | ✅ / 0 LINK   | ✅ / 0 LINK   |✅ / 0 LINK   |
+| HTTP Get > Bytes,Uint256          | ✅ / 0 LINK   | ✅ / 0 LINK   | ✅ / 0 LINK   |✅ / 0 LINK   |
+| HTTP Get > Int256             | ✅ / 0 LINK   | ✅ / 0 LINK   | ✅ / 0 LINK   |✅ / 0 LINK   |
+| HTTP Get > Uint256          | ✅ / 0 LINK   | ✅ / 0 LINK   | ✅ / 0 LINK  |✅ / 0 LINK   |
+| HTTP Get > Uint256 - no mult         | ✅ / 0 LINK   | ✅ / 0 LINK   | ✅ / 0 LINK  |✅ / 0 LINK   |
+| HTTP Get > Uint256,Uint256  | ✅ / 0 LINK   | ✅ / 0 LINK   | ✅ / 0 LINK   |✅ / 0 LINK   |
+| HTTP Get > Uint256[]        | ✅ / 0 LINK   | ✅ / 0 LINK   | ✅ / 0 LINK    |✅ / 0 LINK   |
+| HTTP Get > String             | ✅ / 0 LINK   | ✅ / 0 LINK   | ✅ / 0 LINK   |✅ / 0 LINK   |
 
 ### GET vs POST
 
