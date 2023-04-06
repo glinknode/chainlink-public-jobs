@@ -1,6 +1,6 @@
 type = "directrequest"
 schemaVersion = 1
-name = "GLINK-ETH-GOERLI [DR] (Get > Uint256)"
+name = "GLINK-ETH-SEPOLIA [DR] (Get > Uint256)"
 externalJobID = "b4bb896b-5d9b-4dc6-94e8-4479563a537a"
 forwardingAllowed = false
 maxTaskDuration = "0s"
