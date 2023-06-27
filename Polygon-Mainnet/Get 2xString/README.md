@@ -33,22 +33,27 @@ Note: If you want to access arrays within JSON responses, you have to use the pr
 ## Example Chainlink Oracle Setting
 If you specify the following parameters
 
-* API Endpoint : https://raw.githubusercontent.com/glinknode/chainlink-public-jobs/main/example-json/example-string.json
+* API Endpoint : https://raw.githubusercontent.com/glinknode/chainlink-public-jobs/main/example-json/example-2xstring.json
 
-* JSON Path : `"data_string"`
+* JSON Path : `"data_string1"`
 
 If this example request was used with the example smart contract, it would have returned: `chainlink`
+
+* JSON Path : `"data_string2"`
+
+If this example request was used with the example smart contract, it would have returned: `network`
 
 ## Curl Command
 Curl command : 
 ```
-curl https://raw.githubusercontent.com/glinknode/chainlink-public-jobs/main/example-json/example-string.json
+curl https://raw.githubusercontent.com/glinknode/chainlink-public-jobs/main/example-json/example-2xstring.json
 ```
 
 JSON API Output:
 ```
 {
-  "data_string": "chainlink"
+  "data_string1": "chainlink"
+  "data_string2": "network"
 }
 ```
 
