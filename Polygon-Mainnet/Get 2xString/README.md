@@ -1,4 +1,4 @@
-# Get > String
+# Get > 2xString
 This smart contract is designed to retrieve aa single string from our oracle using a public JSON API that is compatible with `curl GET` requests.
 
 ## Standard Use Cases:
