@@ -15,7 +15,7 @@ Oracle JobID:
 ```
 Oracle Fee: 0.25 [LINK](https://polygonscan.com/address/0xb0897686c545045afc77cf20ec7a532e3120e0f1)
 ```
-minContractPaymentLinkJuels = 150000000000000000
+minContractPaymentLinkJuels = 250000000000000000
 ```
 
 NOTE: When using Chainlink oracles on Polygon Mainnet, payment must be made using the ERC677 LINK token, rather than the ERC20 LINK token. If you need to switch between the two types of LINK tokens, you can use the official Chainlink Platform: [Pegswap](https://pegswap.chain.link/)
