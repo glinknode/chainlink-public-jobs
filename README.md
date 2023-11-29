@@ -55,7 +55,7 @@
 
 ### GET vs POST
 
-All jobs are in the ’GET’-Format. If you need them as POST please join our [Discord](https://discord.gg/a69JjGd3y6) or contact us through our [website](https://www.glink.solutions).
+All jobs are in the ’GET’-Format. If you need them as POST please join our [Discord](https://discord.gg/KmZVYhYJUy) or contact us through our [website](https://www.glink.solutions).
 
 #### GET-example: 
 ```
@@ -68,7 +68,7 @@ curl -X POST -H "content-type:application/json" https://api-endpoint-example.com
 
 ## Private & Custom Data Requests 	:lock:
 
-If you don't see the job you're looking for on the list, or if your API requires authentication, please join our [Discord](https://discord.gg/a69JjGd3y6) or contact us through our [website](https://www.glink.solutions).
+If you don't see the job you're looking for on the list, or if your API requires authentication, please join our [Discord](https://discord.gg/KmZVYhYJUy) or contact us through our [website](https://www.glink.solutions).
 
 ## Troubleshooting: :nut_and_bolt:
 
@@ -80,12 +80,12 @@ Below you find the most common problems when integrating our oracle services. If
 
 + Make sure there are no dashes in the job-id loaded into the smart contract for your Oracle request. "-".
 
-+ Before sending an oracle request with your desired API endpoint, verify that the endpoint is accurate for both curl GET formats. If you're making a curl POST request, get in touch with us on [Discord Server](https://discord.gg/a69JjGd3y6) to handle it properly.
++ Before sending an oracle request with your desired API endpoint, verify that the endpoint is accurate for both curl GET formats. If you're making a curl POST request, get in touch with us on [Discord Server](https://discord.gg/KmZVYhYJUy) to handle it properly.
 
 + Make sure you've identified the correct JSON path from the output of the API endpoint, taking into account array notation like "0" for the first array.
 
 
 ## Contact :iphone:
 
-If you can't find an answer to your question, welcome to our [Discord](https://discord.gg/a69JjGd3y6)!  
+If you can't find an answer to your question, welcome to our [Discord](https://discord.gg/KmZVYhYJUy)!  
 You can also check out our [website](https://www.glink.solutions)!
