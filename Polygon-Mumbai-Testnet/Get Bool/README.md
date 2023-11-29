@@ -75,5 +75,5 @@ JSON API Output:
 Please see our troubleshooting guide [here](https://github.com/glinknode/chainlink-public-jobs#troubleshooting-nut_and_bolt).
 
 ## Contact :iphone:
-If you can't find an answer to your question, welcome to our [Discord](https://discord.gg/a69JjGd3y6)!  
+If you can't find an answer to your question, welcome to our [Discord](https://discord.gg/KmZVYhYJUy)!  
 You can also check out our [website](https://www.glink.solutions)!
