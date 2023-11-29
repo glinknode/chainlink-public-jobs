@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 // https://glink.solutions
-// Discord=https://discord.gg/a69JjGd3y6
+// Discord=https://discord.gg/KmZVYhYJUy
 
 /**
  * THIS IS AN EXAMPLE CONTRACT WHICH USES HARDCODED VALUES FOR CLARITY.
