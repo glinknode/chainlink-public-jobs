@@ -16,6 +16,8 @@ Oracle JobID:
 Oracle Fee: 0.0 [LINK](https://testnet.snowtrace.io/address/0x0b9d5D9136855f6FEc3c0993feE6E9CE8a297846)
 ```
 minContractPaymentLinkJuels = 0
+```
+## Oracle Address & JobID:
 
 ## Input Variables:
 The smart contract requires the following parameters to be specified BEFORE compiling & deploying on Remix:
@@ -86,7 +88,7 @@ JSON API Output:
 Please see our troubleshooting guide [here](https://github.com/glinknode/chainlink-public-jobs#troubleshooting-nut_and_bolt).
 
 ## Contact :iphone:
-If you can't find an answer to your question, welcome to our [Discord](https://discord.gg/a69JjGd3y6)!  
+If you can't find an answer to your question, welcome to our [Discord](https://discord.gg/KmZVYhYJUy)!  
 You can also check out our [website](https://www.glink.solutions)!
 
 
